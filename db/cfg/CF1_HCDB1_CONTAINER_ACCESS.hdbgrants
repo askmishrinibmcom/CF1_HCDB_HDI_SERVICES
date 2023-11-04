@@ -1,0 +1,14 @@
+{
+    "LOGICAL_CF1_HCDB1_CONTAINER_ACCESS": {
+        "object_owner": {
+            "container_roles": [
+                "C1H1HDI1OP#"
+            ]
+        },
+        "application_user": {
+            "container_roles": [
+                "C1H1HDI1SP"
+            ]
+        }
+    }
+}

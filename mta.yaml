@@ -1,0 +1,31 @@
+_schema-version: "2.1"
+ID: CF1_HCDB_HDI_SERVICES
+version: 0.0.1
+modules:
+- name: CF1_HCDB-db-deployer
+  type: hdb
+  path: db
+  requires:
+  - name: CF1_HCDB-db
+    properties:
+      TARGET_CONTAINER: ~{hdi-container-name}
+  - name: cross-container-service-CF1_HCDB1
+    group: SERVICE_REPLACEMENTS
+    properties:
+      key: LOGICAL_CF1_HCDB1_CONTAINER_ACCESS
+      service: ~{the-service-name}
+resources:
+- name: CF1_HCDB-db
+  type: com.sap.xs.hdi-container
+  parameters:
+    config:
+      database_id: a1fa3674-74a3-45a2-aa10-69f36c03cdce
+      schema: CF1_HCDB_HDI_SERVICES_SCHEMA
+  properties:
+    hdi-container-name: ${service-name}
+- name: cross-container-service-CF1_HCDB1
+  type: org.cloudfoundry.existing-service
+  parameters:
+    service-name: hdi_CF1_HCDB1-db
+  properties:
+    the-service-name: ${service-name}

@@ -1,0 +1,8 @@
+{
+    "C1H1HDI1TABLE": {
+        "target": {
+            "object": "C1H1HDI1TABLE",
+            "schema.configure": "LOGICAL_CF1_HCDB1_CONTAINER_ACCESS/schema"
+        }
+    }
+}
